@@ -1,4 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#1A1815"/>
-  <text x="32" y="43" text-anchor="middle" font-family="'Space Grotesk', 'Arial Black', sans-serif" font-size="30" font-weight="700" fill="#D96C4A">N</text>
+  <!-- Ícono de marca: "N" crema + barra terracota sobre carbón -->
+  <rect width="64" height="64" rx="10" fill="#1A1815"/>
+  <path fill="#EFE9DE" d="M21 45 L21 15 L27.4 15 L37.6 35.3 L37.6 15 L44 15 L44 45 L37.6 45 L27.4 24.7 L27.4 45 Z"/>
+  <rect x="19" y="50" width="26" height="4.5" fill="#D96C4A"/>
 </svg>
