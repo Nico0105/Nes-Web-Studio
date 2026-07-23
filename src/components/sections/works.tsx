@@ -1,3 +1,5 @@
+import { ArrowUpRight } from "lucide-react"
+
 import { Reveal } from "@/components/motion/reveal"
 import { SectionHeader } from "@/components/shared/section-header"
 import { SpotlightCard } from "@/components/ui/spotlight-card"
@@ -77,8 +79,8 @@ export function Works() {
         <SectionHeader kicker={works.kicker} title={works.title} />
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2">
-          {projects.map((project, i) => (
-            <Reveal key={project.name} delay={(i % 2) * 0.12}>
+          {projects.map((project, i) => {
+            const card = (
               <SpotlightCard className="h-full">
                 <div className="flex h-full flex-col p-5 sm:p-6">
                   <BrowserMockup project={project} />
@@ -86,8 +88,14 @@ export function Works() {
                     <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-warmgray">
                       {project.industry}
                     </p>
-                    <h3 className="mt-2 font-display text-xl font-bold">
+                    <h3 className="mt-2 flex items-center gap-2 font-display text-xl font-bold">
                       {project.name}
+                      {project.url && (
+                        <ArrowUpRight
+                          aria-hidden
+                          className="h-5 w-5 text-terracotta transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                        />
+                      )}
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                       {project.description}
@@ -95,8 +103,27 @@ export function Works() {
                   </div>
                 </div>
               </SpotlightCard>
-            </Reveal>
-          ))}
+            )
+
+            return (
+              <Reveal key={project.name} delay={(i % 2) * 0.12}>
+                {/* Con url, la tarjeta entera es un link al sitio online */}
+                {project.url ? (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Ver ${project.name} online`}
+                    className="block h-full"
+                  >
+                    {card}
+                  </a>
+                ) : (
+                  card
+                )}
+              </Reveal>
+            )
+          })}
         </div>
       </div>
     </section>

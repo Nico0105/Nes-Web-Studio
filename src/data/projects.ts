@@ -3,8 +3,9 @@
  *
  * Cada proyecto se muestra dentro de un mockup de navegador simulado
  * (barra con puntitos + área 16:10 con un mini-layout ilustrativo).
- * Para agregar un proyecto, sumá un objeto a este array — la presentación
- * vive en src/components/sections/works.tsx.
+ * Si tiene `url`, la tarjeta entera es un link que abre el sitio real
+ * en una pestaña nueva. Para agregar un proyecto, sumá un objeto a este
+ * array — la presentación vive en src/components/sections/works.tsx.
  */
 
 export type Project = {
@@ -16,6 +17,8 @@ export type Project = {
   description: string
   /** Dominio que se muestra en la barra del navegador simulado */
   domain: string
+  /** URL del sitio online (opcional): convierte la tarjeta en link */
+  url?: string
   /** Fondo del mini-layout del mockup */
   theme: "dark" | "light"
   /** Color del bloque de acento (botón) dentro del mockup */
@@ -24,11 +27,12 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    name: "Estudio Braga",
+    name: "Abogados Escolar",
     industry: "Estudio jurídico",
     description:
-      "Landing sobria para captar consultas, con foco en confianza y respuesta rápida.",
-    domain: "estudiobraga.com.ar",
+      "Landing sobria para un estudio jurídico, pensada para generar consultas con respuesta rápida.",
+    domain: "abogados-escolar.vercel.app",
+    url: "https://abogados-escolar.vercel.app/#inicio",
     theme: "dark",
     accent: "terracotta",
   },
@@ -42,11 +46,12 @@ export const projects: Project[] = [
     accent: "carbon",
   },
   {
-    name: "Klínika Dental",
-    industry: "Salud",
+    name: "Portfolio Nicolás Escolar",
+    industry: "Desarrollador web",
     description:
-      "Sitio institucional con turnos por WhatsApp para multiplicar las consultas.",
-    domain: "klinikadental.com",
+      "Portfolio personal con proyectos, stack y contacto directo, en una sola página.",
+    domain: "portfolio-nicolas-escolar.vercel.app",
+    url: "https://portfolio-nicolas-escolar-seven.vercel.app/#top",
     theme: "dark",
     accent: "cream",
   },
