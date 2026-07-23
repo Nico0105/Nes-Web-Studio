@@ -19,7 +19,7 @@ const accentClasses: Record<Project["accent"], string> = {
   carbon: "bg-carbon",
 }
 
-/** Mockup de navegador con un mini-layout ilustrativo del proyecto. */
+/** Mockup de navegador con la captura del sitio (o un mini-layout ilustrativo). */
 function BrowserMockup({ project }: { project: Project }) {
   const dark = project.theme === "dark"
   // Color de las barras del esqueleto según el fondo del lienzo
@@ -39,35 +39,47 @@ function BrowserMockup({ project }: { project: Project }) {
         </span>
       </div>
 
-      {/* Lienzo 16:10 con mini-layout del sitio */}
-      <div
-        aria-hidden
-        className={cn(
-          "flex aspect-[16/10] flex-col justify-between p-6 transition-transform duration-500 ease-out group-hover:scale-[1.02]",
-          dark ? "bg-carbon" : "bg-cream",
-        )}
-      >
-        {/* Mini navbar */}
-        <div className="flex items-center justify-between">
-          <span className={cn("h-2 w-8 rounded-full", accentClasses[project.accent])} />
-          <div className="flex gap-2">
-            <span className={cn("h-1.5 w-6 rounded-full", bar)} />
-            <span className={cn("h-1.5 w-6 rounded-full", bar)} />
-            <span className={cn("h-1.5 w-6 rounded-full", bar)} />
-          </div>
-        </div>
-        {/* Mini hero: titular + botón */}
-        <div>
-          <span className={cn("block h-3.5 w-3/4 rounded-full", bar)} />
-          <span className={cn("mt-2 block h-3.5 w-1/2 rounded-full", bar)} />
-          <span
-            className={cn(
-              "mt-4 block h-6 w-20 rounded-full",
-              accentClasses[project.accent],
-            )}
+      {/* Captura real del sitio */}
+      {project.image ? (
+        <div className="aspect-[16/10] overflow-hidden">
+          <img
+            src={project.image}
+            alt={`Captura del sitio de ${project.name}`}
+            loading="lazy"
+            className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
           />
         </div>
-      </div>
+      ) : (
+        /* Lienzo 16:10 con mini-layout ilustrativo */
+        <div
+          aria-hidden
+          className={cn(
+            "flex aspect-[16/10] flex-col justify-between p-6 transition-transform duration-500 ease-out group-hover:scale-[1.02]",
+            dark ? "bg-carbon" : "bg-cream",
+          )}
+        >
+          {/* Mini navbar */}
+          <div className="flex items-center justify-between">
+            <span className={cn("h-2 w-8 rounded-full", accentClasses[project.accent])} />
+            <div className="flex gap-2">
+              <span className={cn("h-1.5 w-6 rounded-full", bar)} />
+              <span className={cn("h-1.5 w-6 rounded-full", bar)} />
+              <span className={cn("h-1.5 w-6 rounded-full", bar)} />
+            </div>
+          </div>
+          {/* Mini hero: titular + botón */}
+          <div>
+            <span className={cn("block h-3.5 w-3/4 rounded-full", bar)} />
+            <span className={cn("mt-2 block h-3.5 w-1/2 rounded-full", bar)} />
+            <span
+              className={cn(
+                "mt-4 block h-6 w-20 rounded-full",
+                accentClasses[project.accent],
+              )}
+            />
+          </div>
+        </div>
+      )}
     </div>
   )
 }
