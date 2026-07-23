@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Variables CSS de shadcn/ui con la paleta de NES Web Studio.
+ *
+ * :root  → tema claro (secciones crema  #EFE9DE)
+ * .dark  → tema oscuro (secciones carbón #1A1815)
+ *
+ * Las secciones oscuras llevan la clase "dark" en su wrapper, así los
+ * componentes de shadcn (botones, inputs, acordeón) se adaptan solos.
+ */
+@layer base {
+  :root {
+    --background: 39 35% 90%; /* crema #EFE9DE */
+    --foreground: 36 11% 9%; /* carbón #1A1815 */
+
+    --card: 40 33% 94%;
+    --card-foreground: 36 11% 9%;
+
+    --primary: 14 65% 57%; /* terracota #D96C4A */
+    --primary-foreground: 36 11% 9%;
+
+    --secondary: 38 20% 84%;
+    --secondary-foreground: 36 11% 9%;
+
+    --muted: 38 20% 84%;
+    --muted-foreground: 30 7% 40%; /* gris cálido, oscurecido para contraste sobre crema */
+
+    --accent: 14 65% 57%;
+    --accent-foreground: 36 11% 9%;
+
+    --border: 36 12% 78%;
+    --input: 36 12% 72%;
+    --ring: 14 65% 57%;
+
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 36 11% 9%; /* carbón #1A1815 */
+    --foreground: 39 35% 90%; /* crema #EFE9DE */
+
+    --card: 36 10% 12%;
+    --card-foreground: 39 35% 90%;
+
+    --primary: 14 65% 57%; /* terracota #D96C4A */
+    --primary-foreground: 36 11% 9%;
+
+    --secondary: 36 8% 18%;
+    --secondary-foreground: 39 35% 90%;
+
+    --muted: 36 8% 18%;
+    --muted-foreground: 30 7% 60%; /* gris cálido, aclarado para contraste sobre carbón */
+
+    --accent: 14 65% 57%;
+    --accent-foreground: 36 11% 9%;
+
+    --border: 37 15% 24%;
+    --input: 37 15% 28%;
+    --ring: 14 65% 57%;
+  }
+}
+
+@layer base {
+  html {
+    /* Scroll suave entre secciones, con margen para la navbar fija */
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-carbon font-sans text-base antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-terracotta text-carbon;
+  }
+
+  /* Respetar la preferencia de menos movimiento del usuario */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer utilities {
+  /* Kicker editorial: texto chico, espaciado y en terracota */
+  .kicker {
+    @apply font-sans text-xs font-semibold uppercase tracking-[0.25em] text-terracotta;
+  }
+}
