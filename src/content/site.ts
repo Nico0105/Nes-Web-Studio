@@ -16,8 +16,9 @@ export const contact = {
   whatsappMessage:
     "¡Hola! Vi la página de NES Web Studio y quiero consultar por mi web.",
   email: "nicogabescolar@gmail.com",
-  instagram: "https://instagram.com/nes.webstudio", // 
-  tiktok: "https://tiktok.com/@nes.webstudio", //
+  instagram: "https://instagram.com/nes.webstudio", // Reemplazar por el usuario real
+  tiktok: "https://tiktok.com/@nes.webstudio", // Reemplazar por el usuario real
+}
 
 export const nav = {
   links: [
