@@ -11,14 +11,13 @@ export const contact = {
    * Ej.: 5491122334455 (54 = Argentina, 9 = celular, 11 = área).
    * ⚠️ Reemplazar por el número real antes de publicar.
    */
-  whatsapp: "5491100000000",
+  whatsapp: "5491153278545",
   /** Mensaje pre-cargado del botón flotante y los CTAs de WhatsApp. */
   whatsappMessage:
     "¡Hola! Vi la página de NES Web Studio y quiero consultar por mi web.",
   email: "nicogabescolar@gmail.com",
-  instagram: "https://instagram.com/nes.webstudio", // ⚠️ Reemplazar por el usuario real
-  tiktok: "https://tiktok.com/@nes.webstudio", // ⚠️ Reemplazar por el usuario real
-}
+  instagram: "https://instagram.com/nes.webstudio", // 
+  tiktok: "https://tiktok.com/@nes.webstudio", //
 
 export const nav = {
   links: [
