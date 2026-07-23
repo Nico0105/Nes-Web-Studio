@@ -18,6 +18,7 @@ export const contact = {
   email: "nicogabescolar@gmail.com",
   instagram: "https://instagram.com/nes.webstudio", // 
   tiktok: "https://tiktok.com/@nes.webstudio", //
+}
 
 export const nav = {
   links: [
